@@ -1,41 +1,25 @@
-import { getCategories } from './infraestructure/categories'
-import { getProjects, getProjectCover, getTextFromRichtext } from './infraestructure/getProjectsFromAPI'
-import type { CategoryTypes } from './domain/categoryInterfaces'
-import type { ProjectTypes } from './domain/projectInterfaces'
+import type { ProjectTypes } from './project/domain/project'
+import {getProjectsFromAPI } from './project/infraestructure/getProjectsFromAPI'
+import { getProjects} from './project/application/getProjects'
 import styles from './page.module.css'
 
-const Home = async (): Promise<JSX.Element> => {
-  const categories = await getCategories()
-  const projects = await getProjects()
+const Home = async () => {
+  const APIprojects = await getProjectsFromAPI()
+  const parsingProjects = getProjects(APIprojects)
   return (
     <main className={styles.main}>
-      <div className={styles.categories}>
+      <div className={styles.projects}>
         <ul>
-          {categories.map(({ id, attributes }: CategoryTypes) => {
-            const categoryProjectsData = attributes.projects.data
-            const firstCategoryProject = categoryProjectsData[0].attributes
-            console.log(firstCategoryProject)
+          {}
+          {parsingProjects.map(( project : ProjectTypes) => {
             return (
-              <li key={id}>
-                <h3>{firstCategoryProject.title}</h3>
+              <li key={project.id}>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <img src={project.cover.url} alt={project.cover.alternativeText || ''} width='300' />
               </li>
             )
           })}
-        </ul>
-      </div>
-      <div className={styles.projects}>
-        <ul>
-          {/*projects.map(({ id, attributes }: ProjectTypes) => {
-            const description = getTextFromRichtext(attributes.description)
-            const cover = getProjectCover(attributes.cover)
-            return (
-              <li key={id}>
-                <h3>{attributes.title}</h3>
-                <p>{description}</p>
-                <img src={cover.url} alt={cover.alternativeText || ''} width='300' />
-              </li>
-            )
-          })*/}
         </ul>
       </div>
     </main>
