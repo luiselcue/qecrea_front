@@ -7,7 +7,7 @@ export interface ImageDataAPITypes {
   id: number
 }
 
-interface ImageAttributesAPITypes {
+export interface ImageAttributesAPITypes {
   id: number
   url: string
   name?: null | string
@@ -41,4 +41,10 @@ export interface RichTextAPITypes {
 interface RichTextChildAPITypes {
   text: string
   type: string
+}
+
+export interface LinkTypes {
+  id: number
+  label: string
+  url: string
 }

@@ -7,7 +7,3 @@ export const getProjects = (projectsFromAPI: ProjectAPITypes[] ): ProjectTypes[]
     return projectAdapter(projectData)
   })
 }
-
-
-
-
