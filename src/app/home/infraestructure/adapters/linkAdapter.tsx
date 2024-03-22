@@ -1,10 +1,10 @@
-import type { LinkTypes } from '../../../entities/entitiesInterfaces'
-import type { LegalLinkTypes } from '../../domain/home'
+import type { LinkAPITypes } from '../../../entities/entitiesInterfaces'
+import type { LegalLinkAPITypes } from '../../domain/homeInterfaces'
 
-export const linkAdapter = ({ id, label, url }: LinkTypes):LegalLinkTypes => {
-    return {
-        id,
-        label,
-        url
-    }
+export const linkAdapter = ({ id, label, url }: LinkAPITypes): LegalLinkAPITypes => {
+  return {
+    id,
+    label,
+    url
+  }
 }

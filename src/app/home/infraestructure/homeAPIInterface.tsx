@@ -1,5 +1,5 @@
 import type { CategoriesAPITypes } from '../../project/infraestructure/projectAPIInterfaces'
-import type { FormatAPITypes, LinkTypes } from '../../entities/entitiesInterfaces'
+import type { FormatAPITypes, LinkAPITypes } from '../../entities/entitiesInterfaces'
 
 export interface HomeDataAPITypes {
   data: HomeAPITypes
@@ -11,34 +11,35 @@ export interface HomeAPITypes {
 }
 
 export interface HomeAttributesAPITypes {
-  categories: null | CategoriesAPITypes
+  categories?: null | CategoriesAPITypes
   copy: string
-  legallinks: LinkTypes[]
+  legallinks: LinkAPITypes[]
   locale: string
   logo: LogoAPITypes
-  pages: LinkTypes[]
-  socialicons: SocialIconsTypes
+  pages?: null | LinkAPITypes[]
+  socialicons: SocialIconsAPITypes
 }
 
 export interface LogoAPITypes {
-  data: LogoDataTypes
+  data: LogoDataAPITypes
 }
 
-export interface LogoDataTypes {
+export interface LogoDataAPITypes {
   id: number
   attributes: FormatAPITypes
 }
 
-export interface SocialIconsTypes {
-  data: SocialIconDataTypes[]
+export interface SocialIconsAPITypes {
+  data: SocialIconDataAPITypes[]
 }
 
-export interface SocialIconDataTypes {
-  attributes: SocialIconAttributes
+export interface SocialIconDataAPITypes {
   id: number
+  attributes: SocialIconAttributesAPITypes
 }
 
-export interface SocialIconAttributes {
-  name: string
+export interface SocialIconAttributesAPITypes {
+  icon: string
+  label: string
   url: string
 }

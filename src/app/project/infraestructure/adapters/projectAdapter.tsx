@@ -1,5 +1,5 @@
 import type { ProjectAPITypes } from '../../infraestructure/projectAPIInterfaces'
-import type { ProjectTypes } from '../../domain/project'
+import type { ProjectTypes } from '../../domain/projectInterfaces'
 import { richtextAdapter } from './richtextAdapter'
 import { imageAdapter } from './imageAdapter'
 import { categoryAdapter } from './categoryAdapter'

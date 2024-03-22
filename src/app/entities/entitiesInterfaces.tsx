@@ -26,11 +26,11 @@ export interface FormatsAPITypes {
 }
 
 export interface FormatAPITypes {
-    name: string
-    width: number
-    height: number
-    size: number
-    url: string
+  name: string
+  width: number
+  height: number
+  size: number
+  url: string
 }
 
 export interface RichTextAPITypes {
@@ -43,7 +43,7 @@ interface RichTextChildAPITypes {
   type: string
 }
 
-export interface LinkTypes {
+export interface LinkAPITypes {
   id: number
   label: string
   url: string

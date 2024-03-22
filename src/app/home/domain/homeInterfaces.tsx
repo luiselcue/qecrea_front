@@ -1,18 +1,18 @@
-import {ImageFormatTypes} from "../../project/domain/project"
+import type { ImageFormatTypes } from '../../project/domain/projectInterfaces'
 
 export interface HomeTypes {
   id: number
   logo: ImageFormatTypes
   categories?: null | CategoryTypes[]
-  legallinks: LegalLinkTypes[]
+  legallinks: LegalLinkAPITypes[]
   copy: string
   locale: string
-  pages: LegalLinkTypes[]
-  socialicons: SocialIconsTypes[]
+  pages?: null | LegalLinkAPITypes[]
+  socialicons: SocialIconTypes[]
 }
 
 export interface LogoImageTypes {
-  name: string
+  name?: string
   width: number
   height: number
   size: number
@@ -25,14 +25,15 @@ export interface CategoryTypes {
   slug: string
 }
 
-export interface LegalLinkTypes {
+export interface LegalLinkAPITypes {
   id: number
   label: string
   url: string
 }
 
-export interface SocialIconsTypes {
+export interface SocialIconTypes {
   id: number
-  name: string
+  icon: string
+  label: string
   url: string
 }
